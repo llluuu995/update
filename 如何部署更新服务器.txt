@@ -1,0 +1,117 @@
+═══════════════════════════════════════════════════════════
+  「对方接收更新」部署教程（免服务器版 · 约5分钟 · 0元）
+═══════════════════════════════════════════════════════════
+
+【重点：不需要实名认证的方案（推荐用这个）】
+腾讯云/阿里云/Gitee 都要手机号实名，以下方案**只用邮箱、不要实名**：
+
+方案 ⓪ HuggingFace + hf-mirror 国内镜像（你想用的方案，国内访问最稳）
+1. 打开 huggingface.co → 注册（只要邮箱+密码，不用手机号；若主站
+   偶尔打不开，多刷新几次或过会儿再试，注册成功后其他操作都走镜像）
+2. 登录后右上角 + → New dataset（新建数据集，当「免费网盘」用）
+   → 名字写 update → 公开（Public）→ 创建
+   （为什么用 Dataset：免费、容量大、拿到的直链是永久稳定的）
+3. 进仓库 → Files → Upload files → 把 本文件夹里的
+   update.json 和 专升本章节学习.exe 两个文件拖进去上传
+4. 直链规则（hf-mirror.com 是 HuggingFace 官方国内镜像，免梯子）：
+   update.json：
+   https://hf-mirror.com/datasets/你的HF用户名/update/resolve/main/update.json
+   exe 下载：
+   https://hf-mirror.com/datasets/你的HF用户名/update/resolve/main/专升本章节学习.exe
+5. 把 update.json 的网址填进软件 UPDATE_URL，dl 填 exe 直链：
+   打开 App\index.html 找到 const UPDATE_URL=""，填进引号，保存，
+   重新打包 exe（打包命令见本文件末尾）
+6. 对方点「📣 更新日志 → 🔄 检查更新」→ 看到新版本+更新内容+
+   「下载新版」按钮 → 点按钮从 hf-mirror 下载新 exe → 替换即更新
+（每次更新：重打包→上传新 exe 到 HF 仓库覆盖→改 update.json 的
+ ver/log/dl→上传覆盖 update.json→对方检查更新即收到）
+
+方案 ① GitHub + jsDelivr 加速（备选，国内也能访问）
+1. 打开 github.com → 注册（只要邮箱+密码，如 QQ 邮箱即可，不用手机号）
+2. 右上角 + → New repository → 名字随便（如 update）→ Public → 创建
+3. 把 更新部署\update.json 和 专升本章节学习.exe（14MB，GitHub 单文件
+   上限 100MB，放得下）两个文件传上去（Add file → Upload files）
+4. update.json 的网址就是（不用自己拼，用下面的规则）：
+   https://cdn.jsdelivr.net/gh/你的用户名/update@main/update.json
+   exe 的下载直链：
+   https://cdn.jsdelivr.net/gh/你的用户名/update@main/专升本章节学习.exe
+   （jsDelivr 是免费全球 CDN，专门加速 GitHub 文件，国内大部分网络能用；
+   注意 jsDelivr 有缓存，改完 update.json 要等几分钟生效，或文件名后面
+   加版本号如 update2.json 立即生效）
+5. 把 update.json 的网址填进软件 UPDATE_URL，dl 填 exe 直链即可
+   → 对方点「检查更新」→ 看到新版本+内容+「下载新版」按钮，
+     点按钮从 jsDelivr 下载新 exe，替换即更新。
+
+方案 ② Cloudflare Pages（邮箱注册，免实名，全球 CDN）
+1. 打开 dash.cloudflare.com → 注册（邮箱即可，不要实名）
+2. 左侧 Workers 和 Pages → Create → Pages → 上传资产（Upload assets）
+   → 把 update.json、专升本章节学习.exe 拖进去 → 部署
+3. 得到网址 https://你的项目名.pages.dev
+   → update.json 网址就是 https://你的项目名.pages.dev/update.json
+4. 填进 UPDATE_URL 即可。国内访问速度一般但基本稳定。
+
+（备选：Vercel/Netlify 也免实名，但国内直连不稳，不建议主要使用）
+
+【原方案（要实名，国内最快）：方案 A 腾讯云COS / B Gitee / C GitHub 见下文】
+
+【原理】
+· 软件里已有「📣 更新日志 → 🔄 检查更新」功能：
+  它每次去请求你指定的一个网址上的 update.json（一个小文件）。
+· 你以后每次更新软件（找我加题/优化→重新打包），只要：
+  ① 把新版 exe 上传到免费网盘/托管，得到下载直链
+  ② 改 update.json 里的版本号、更新内容和下载链接
+  ③ 把 update.json 传到免费托管
+  ④ 把 update.json 的网址填进软件（App\index.html 里 UPDATE_URL）
+→ 对方打开软件点「检查更新」，就能看到「发现新版本 vX.XX」+
+  更新内容 + 「下载新版」按钮。点按钮跳转下载，替换 exe 即更新。
+
+【原方案（要手机号实名，国内直连快）：方案 A 腾讯云COS / B Gitee / C GitHub】
+
+【方案 A：腾讯云 COS（要实名，国内直连快）】
+1. 注册腾讯云账号（微信扫码即可）→ 搜「对象存储 COS」
+2. 创建存储桶：地域选「北京/上海」，访问权限选「公有读私有写」
+3. 把 update.json 和 专升本章节学习.exe 上传到桶里
+4. 点文件→「复制链接」，把 update.json 的链接填进软件 UPDATE_URL
+（免费额度：50GB 存储/每月，个人更新流量远用不完）
+
+【方案 B：Gitee 码云（要手机号，国内快）】
+1. 注册 gitee.com（手机号即可）→ 新建仓库（公开）
+2. 把 update.json 上传到仓库
+3. 打开该文件 → 点「原始数据 / Raw」→ 复制地址
+   （形如 https://gitee.com/你的用户名/仓库名/raw/main/update.json）
+4. 把该地址填进软件 UPDATE_URL
+（新版 exe 文件较大，可传网盘用直链，update.json 里的 dl 填网盘链接）
+
+【方案 C：GitHub（仅邮箱、免实名，见顶部方案①的完整教程）】
+1. 注册 github.com → 新建仓库 → 上传 update.json → 用 raw 链接
+2. 优缺点：完全免费无限流量，但国内部分网络访问慢/不稳
+
+【怎么填进软件】
+· 打开 E:\专升本学习软件\App\index.html，
+  找到这一行：
+    const UPDATE_URL="";
+  把引号里填上你的 update.json 网址，例如：
+    const UPDATE_URL="https://gitee.com/xxx/update/raw/main/update.json";
+  保存后重打包 exe（打包命令见项目根使用说明/历史记录），
+  或直接把新版 index.html 所在 App 目录替换进新 exe 再发给别人。
+
+【对方看到的流程】
+对方点「📣 更新日志 → 🔄 检查更新」：
+· 有新版：🎉 发现新版本 + 更新内容 + ⬇ 下载新版按钮
+· 无新版：✅ 已是最新版本
+· 没联网：提示检查失败（不影响其它功能）
+
+【如果想要「注册 + 推送 + 云进度」的真服务器版】
+· 需要一台云服务器（腾讯云/阿里云轻量应用服务器，最低配约 30-50 元/月，
+  学生认证常有优惠）+ 一个后端程序 + 一个数据库。
+· 功能：对方注册账号→登录→进度云端同步→有新版自动推送通知。
+· 你只需要买服务器，后端代码、数据库、App 对接都可以让我帮你写好。
+  告诉我「要做注册云同步版」即可开工。
+
+═══════════════════════════════════════════════════════════
+update.json 格式说明（模板见同目录 update.json）：
+{
+  "ver": "v2.15",          ← 新版本号（软件会与本地版本比较大小）
+  "log": ["更新内容1", "更新内容2"],   ← 对方看到的更新说明
+  "dl": "https://下载直链/exe"        ← 「下载新版」按钮的网址
+}
