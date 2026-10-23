@@ -1,11 +1,10 @@
 {
-    "ver":  "v2.34（2026-10-25）",
-    "url":  "https://github.com/llluuu995/update/releases/download/v2.34/专升本章节学习.exe",
-    "url_alt":  "https://github.com/llluuu995/update/releases/download/v2.34/专升本章节学习.exe",
-    "size":  102123290,
+    "ver":  "v2.35（2026-10-25）",
+    "dl":  "https://cdn.jsdelivr.net/gh/llluuu995/update@main/专升本章节学习.exe",
+    "dl2":  "https://github.com/llluuu995/update/releases/download/v2.35/专升本章节学习.exe",
+    "size":  102123476,
     "log":  [
-                "作文识别升级：本地 OCR 换成开源离线引擎（PP-OCRv4），手写中文/英文作文都能识别，不再“识别不到/乱码”，引擎不可用时自动降级系统自带识别。",
-                "作文评分严格按山东春考标准：语文作文45分制（一/二/三/四等+字数不足700每少50扣1分）、英语职场写作10分制（四档+词数80-120）；评分页带官方档次对照表；单招各院校自主命题故按春考口径并注明。",
-                "AI 深度评分同步按春考 45/10 分制输出得分与档次。"
+                "修复检查更新：兼容服务器文件 BOM 差异，更新检查更稳定；新增「下载新版」按钮（主源 jsDelivr 国内 CDN 加速 + 备用 GitHub 直链），解决“下载慢/下载不了”。",
+                "修复作文识别异常兜底：识别引擎异常时不再把错误代码显示进作文框，改为友好提示并引导手动输入。"
             ]
 }
