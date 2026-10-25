@@ -2,7 +2,7 @@
     "ver": "v2.49（2026-10-25）",
     "dl": "https://github.com/llluuu995/update/releases/download/v2.34/default.exe",
     "dl2": "https://ghfast.top/https://github.com/llluuu995/update/releases/download/v2.34/default.exe",
-    "apk": "https://github.com/llluuu995/update/releases/download/v2.34/default.apk",
+    "apk": "https://github.com/llluuu995/update/releases/download/v2.34/App.apk",
     "size": 102064922,
     "log": [
         "📱 手机端（安卓 APK）全面适配：按官方标准（MDN viewport/safe-area、Android Developers WebView、Capacitor 配置）重做窄屏布局——顶部栏目两行排布不挤压、卡片与统计区自适应、按钮加大便于触屏，刘海屏自动避让安全区（env(safe-area-inset)），支持页面缩放（无障碍）。",
