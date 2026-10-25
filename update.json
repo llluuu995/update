@@ -1,12 +1,11 @@
 {
-    "ver": "v2.49（2026-10-25）",
+    "ver": "v2.49.1（2026-10-25）",
     "dl": "https://github.com/llluuu995/update/releases/download/v2.34/default.exe",
     "dl2": "https://ghfast.top/https://github.com/llluuu995/update/releases/download/v2.34/default.exe",
     "apk": "https://github.com/llluuu995/update/releases/download/v2.34/App.apk",
-    "size": 102064922,
+    "size": 102063673,
     "log": [
-        "📱 手机端（安卓 APK）全面适配：按官方标准（MDN viewport/safe-area、Android Developers WebView、Capacitor 配置）重做窄屏布局——顶部栏目两行排布不挤压、卡片与统计区自适应、按钮加大便于触屏，刘海屏自动避让安全区（env(safe-area-inset)），支持页面缩放（无障碍）。",
-        "📱 作文评分手机版：手机端隐藏拍照识别（OCR 需电脑本地引擎），改为手动输入/粘贴作文评分（语文45分制/英语10分制本地评分正常）；联网 AI 深度评分请在电脑版使用。",
-        "修复：历史遗留「更新日志」页面版本号显示 undefined（APP_VERSION 常量缺失），现正常显示当前版本。"
+        "修复：「检查更新」误报已是最新版本——根因是备用更新源（jsDelivr CDN）有缓存延迟，更新后最长数小时才刷新，会读到旧版 update.json。现改为实时回源的镜像（ghfast.top / gh-proxy.com），更新内容发布后立即能检查到；主源、镜像源按顺序自动切换。",
+        "版本号支持 3 段（如 v2.49.1），版本比较更精确。"
     ]
 }
