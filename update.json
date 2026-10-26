@@ -1,11 +1,11 @@
 {
     "ver": "v2.49.1（2026-10-25）",
-    "dl": "https://github.com/llluuu995/update/releases/download/v2.34/%E4%B8%93%E5%8D%87%E6%9C%AC%E7%AB%A0%E8%8A%82%E5%AD%A6%E4%B9%A0.exe",
-    "dl2": "https://ghfast.top/https://github.com/llluuu995/update/releases/download/v2.34/%E4%B8%93%E5%8D%87%E6%9C%AC%E7%AB%A0%E8%8A%82%E5%AD%A6%E4%B9%A0.exe",
+    "dl": "https://github.com/llluuu995/update/releases/download/v2.34/default.exe",
+    "dl2": "https://ghfast.top/https://github.com/llluuu995/update/releases/download/v2.34/default.exe",
     "apk": "https://github.com/llluuu995/update/releases/download/v2.34/App.apk",
     "size": 102015298,
     "log": [
         "修复：「检查更新」误报已是最新版本——备用源改用实时回源镜像（ghfast.top/gh-proxy.com），发布后立即能检查到。",
-        "桌面版新增程序图标（不再显示为默认黄色文件夹图标），下载文件名改为「专升本章节学习.exe」。"
+        "桌面版新增程序图标（不再显示为默认黄色文件夹图标）。"
     ]
 }
